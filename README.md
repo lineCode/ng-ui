@@ -5,4 +5,4 @@ Simple UI build from OpenGL.
 Start project.
 Add ssh key for pull, push and chang to ssh path.
 
-[a link] git remote set-url origin git@github.com:tkngu/ng-ui.git
+$ git remote set-url origin git@github.com:tkngu/ng-ui.git
