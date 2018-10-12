@@ -16,44 +16,14 @@ int main(int argc, char **argv) {
         Window window(800, 600, "LearnOpenGL");
 
         float vertices[] = {
-            -0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-
-            -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-
-            -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-
-            -0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-
-            -0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-
-            0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-            0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-            0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-            0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+            -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+            0.5f, 0.5f, 0.0f, 0.5f, 0.5f, 0.5f, 1.0f, 1.0f, 1.0f,
+            -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f,
         };
 
         unsigned int indices[] = {
-            0, 2, 1, 0, 2, 3,
-            4, 6, 5, 4, 6, 7,
-            8, 10, 9, 8, 10, 11,
-            12, 14, 13, 12, 14, 15,
-            16, 18, 17, 16, 18, 19,
-            20, 22, 21, 20, 22, 23,
+            0, 1, 2, 0, 2, 3,
         };
 
         unsigned int EBO;
@@ -122,82 +92,43 @@ int main(int argc, char **argv) {
 
         unsigned int color = glGetUniformLocation(shader->id, "ourColor");
         glUniform4f(color, 0.0f, 1.0, 0.0f, 1.0f);
-
-        glEnable(GL_DEPTH_TEST);
-
-        glm::vec3 cubePositions[] = {
-            glm::vec3( 0.0f,  0.0f,  0.0f),
-            glm::vec3( 2.0f,  5.0f, -15.0f),
-            glm::vec3(-1.5f, -2.2f, -2.5f),
-            glm::vec3(-3.8f, -2.0f, -12.3f),
-            glm::vec3( 2.4f, -0.4f, -3.5f),
-            glm::vec3(-1.7f,  3.0f, -7.5f),
-            glm::vec3( 1.3f, -2.0f, -2.5f),
-            glm::vec3( 1.5f,  2.0f, -2.5f),
-            glm::vec3( 1.5f,  0.2f, -1.5f),
-            glm::vec3(-1.3f,  1.0f, -1.5f)
-        };
-        shader->use();
-
-        glm::vec3 cubeSpeed[] = {
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-            glm::vec3( 0.01f,  0.02f,  0.03f),
-        };
+        glm::vec3 location(0.0);
+        glm::vec3 speed(1.0f, -1.0f, 1.0f);
+        glm::mat4 trans(1.0f);
 
         while(!glfwWindowShouldClose(window.getWindow())) {
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT);
             glActiveTexture(GL_TEXTURE0);
             sin(glfwGetTime()) > 0 ? glBindTexture(GL_TEXTURE_2D, texture) : glBindTexture(GL_TEXTURE_2D, 0);
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_2D, texture1);
 
-            glBindVertexArray(VAO);
-            float angle = 0;
-            for(int index = 0; index < 10; index++) {
-                // glm::mat4 trans(1.0f);
-                // trans = glm::rotate(trans, (float)sin(glfwGetTime()) / 10.0f, glm::vec3(0.5f, 0.25f, 1.0f));
-                // trans = glm::translate(trans, location);
-
-                glm::mat4 model(1.0f);
-                cubePositions[index] += cubeSpeed[index];
-                auto tmp = cubePositions[index];
-                if(tmp.x > 1.0f || tmp.x < -1.0f) {
-                    cubeSpeed[index].x = -cubeSpeed[index].x;
-                    cubePositions[index].x = tmp.x < -1.0f ? -1.0f - tmp.x : 1.0f - tmp.x;
-                }
-                if(tmp.y > 1.0f || tmp.y < -1.0f) {
-                    cubeSpeed[index].y = -cubeSpeed[index].y;
-                    cubePositions[index].y = tmp.y < -1.0f ? -1.0f - tmp.y : 1.0f - tmp.y;
-                }
-                if(tmp.z > 3.0f || tmp.z < -3.0f) {
-                    cubeSpeed[index].z = -cubeSpeed[index].z;
-                    cubePositions[index].z = tmp.z < -3.0f ? -3.0f - tmp.z : 3.0f - tmp.z;
-                }
-                model = glm::translate(model, cubePositions[index]);
-                model = glm::rotate(model, glm::radians(angle += 20.0f * sin(glfwGetTime())), glm::vec3(1.0f, 0.3f, 0.5f));
-
-                glm::mat4 view(1.0f);
-                view = glm::translate(view, glm::vec3(0.0f, 0.0f, -4.0f));
-
-                glm::mat4 projection(1.0f);
-                projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, -3.0f, 3.0f);
-
-                glm::mat4 render(projection * view * model);
-
-                unsigned int transformLoc = glGetUniformLocation(shader->id, "transform");
-                glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(render));
-
-                glDrawElements(GL_TRIANGLES, 36 , GL_UNSIGNED_INT, 0);
+            location += glm::vec3((float)sin(glfwGetTime()) / 10.0f, (float)sin(glfwGetTime()) / 10.0f, 0.0f) * speed;
+            if(location.x > 0.5 || location.x < -0.5) {
+                speed.x = -speed.x;
             }
+            if(location.y > 0.5 || location.y < -0.5) {
+                speed.y = -speed.y;
+            }
+            // std::cout << location.x << " " << location.y << " " << location.z << std::endl;
+
+            trans = glm::rotate(trans, (float)sin(glfwGetTime()) / 5.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+            trans = glm::translate(trans, glm::vec3((float)sin(glfwGetTime()) / 10.0f, (float)sin(glfwGetTime()) / 10.0f, 0.0f) * speed);
+
+            float* matrix = glm::value_ptr(trans);
+            for(int indexY = 0; indexY < 4; indexY++) {
+                for(int indexX = 0; indexX < 4; indexX++) {
+                    std::cout << matrix[indexY * 4 + indexX] << " ";
+                }
+                std::cout << std::endl;
+            }
+
+            unsigned int transformLoc = glGetUniformLocation(shader->id, "transform");
+            glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
+            glBindVertexArray(VAO);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
             glfwSwapBuffers(window.getWindow());
             glfwPollEvents();
         }
