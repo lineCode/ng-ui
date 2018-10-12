@@ -11,3 +11,6 @@ Chang build scrip CMake.
 
 # 11-10-2018
 Add lib glm.
+
+# 12-10-2018
+MVP matrix
