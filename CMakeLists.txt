@@ -11,10 +11,9 @@ include_directories(include)
 include_directories(lib)
 
 #For the static library:
-set(PROJECT_LINK_LIBS libglfw3.a)
 file(GLOB SOURCES "src/*.cpp" "src/*.c")
 
 # Project
 project(${PROJECT})
 add_executable(${PROJECT} ${SOURCES})
-target_link_libraries(${PROJECT} ${PROJECT_LINK_LIBS} ${LINK_FLAG})
+target_link_libraries(${PROJECT} ${CMAKE_SOURCE_DIR}/lib/libglfw3.a ${LINK_FLAG})
