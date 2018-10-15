@@ -17,3 +17,7 @@ MVP matrix
 
 # 14-10-2018
 Fix cmake build on archlinux.
+
+# 15-10-2018
+Cmake file debug.
+Some class load texture and image.
