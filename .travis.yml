@@ -90,5 +90,5 @@ before_install:
 
 install: 
   # C++14
-  - g++5 --version
-  - g++5 main.cpp -o main -std=c++14
+  - g++-5 --version
+  - g++-5 main.cpp -o main -std=c++14
