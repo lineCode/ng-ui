@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=NgUI
+Comment=Demo ngu-ui.
+Exec=ng-ui
+Terminal=false
+Type=Application
+Icon=NgUI
+Categories=Graphics;
