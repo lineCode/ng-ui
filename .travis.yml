@@ -1,7 +1,6 @@
 language: cpp
 compiler: gcc
 dist: trusty
-branch: AppImageBuild
 
 before_install:
   # C++14
