@@ -1,8 +1,9 @@
 # Cmake version
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.0)
 
 # CFLAG
 set(CMAKE_CXX_STANDARD 14)
+#set(LINK_FLAG dl pthread X11 Xrandr Xinerama Xxf86vm Xcursor)
 set(LINK_FLAG dl pthread X11 Xrandr Xinerama Xxf86vm Xcursor)
 set(PROJECT ng-ui)
 set(PROJECT_DEBUG debug)
