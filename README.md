@@ -1,3 +1,5 @@
+https://travis-ci.org/TKNgu/DeadGame-2048.svg?branch=master
+
 # ng-ui
 Simple UI build from OpenGL.
 
