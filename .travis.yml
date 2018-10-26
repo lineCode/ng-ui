@@ -10,6 +10,7 @@ before_install:
 install: 
   # C++14
   - sudo apt-get install -qq g++-5 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
+  - g++ main.cpp -o main -std=c++14
 
 before_script:
   - gcc -v && g++ -v && cmake --version
