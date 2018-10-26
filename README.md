@@ -1,4 +1,4 @@
-https://travis-ci.org/TKNgu/DeadGame-2048.svg?branch=master
+[![Build Status](https://travis-ci.org/TKNgu/ng-ui.svg?branch=master)](https://travis-ci.org/TKNgu/ng-ui)
 
 # ng-ui
 Simple UI build from OpenGL.
