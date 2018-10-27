@@ -79,8 +79,10 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-6
+
 install:
   - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+  - sudo apt-get install -qq gcc-5 g++-5 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
 script:
   - make
   - mkdir build
