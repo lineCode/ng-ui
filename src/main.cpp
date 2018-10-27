@@ -152,8 +152,8 @@ int main(int argc, char **argv) {
             glm::vec3(-1.3f,  1.0f, -1.5f)
         };
 
-        float deltaTime = 0.0f; // Time between current frame and last frame
-        float lastFrame = 0.0f; // Time of last frame
+        float deltaTime = 0.0f;
+        float lastFrame = 0.0f;
 
         glfwSetCursorPosCallback(window.getWindow(), mouse_callback);
         glfwSetScrollCallback(window.getWindow(), scroll_callback);
@@ -163,7 +163,6 @@ int main(int argc, char **argv) {
         double start = 0;
         while(!glfwWindowShouldClose(window.getWindow())) {
 
-            // std::cout << "Wait " << 1.0f / (glfwGetTime() - start) << cout++ << std::endl;
             start = glfwGetTime();
             glfwWaitEventsTimeout(FPS);
 
@@ -171,7 +170,7 @@ int main(int argc, char **argv) {
             deltaTime = currentFrame - lastFrame;
             lastFrame = currentFrame;
 
-            float cameraSpeed = 2.5f * deltaTime; // adjust accordingly
+            float cameraSpeed = 2.5f * deltaTime;
             if (glfwGetKey(window.getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
                 camera.move(cameraSpeed, 0);
             }
