@@ -77,11 +77,11 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - g++-5
+    - g++-6
 
 install:
-  - "[ $CXX = g++ ] && export CXX=g++-5 || true"
-  - sudo apt-get install -qq gcc-5 g++-5 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
+  - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+  - sudo apt-get install -qq gcc-6 g++-6 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
   - ld --version
 script:
   - make
