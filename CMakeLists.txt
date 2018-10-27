@@ -62,3 +62,6 @@ add_custom_target(NgUI)
 add_dependencies(NgUI NgUI.AppImage)
 add_custom_command(TARGET NgUI
                      COMMAND ./NgUI-x86_64.AppImage)
+
+add_custom_target(TravisCI)
+add_dependencies(TravisCI NgUI.AppImage)
