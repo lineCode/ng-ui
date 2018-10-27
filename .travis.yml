@@ -30,7 +30,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: cfd4369a4316e30e4652e80b3d48f119298eadf3
+    secure: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
     file:
       - NgUI-x86_64.AppImage
       - NgUI-x86_64.AppImage.zsync
