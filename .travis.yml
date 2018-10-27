@@ -29,22 +29,31 @@ script:
   - cmake ../
   - make release
 
-# Deploy
-before_deploy:
-  - git tag 0.0.3
+# # Deploy
+# before_deploy:
+#   - git tag 0.0.3
+# deploy:
+#   on:
+#     repo:
+#       - TKNgu/ng-ui
+#     branches:
+#       only:
+#       - releases
+#   skip_cleanup:
+#     - true
+#   provider:
+#     - TKNgu
+#   api_key:
+#     secure:
+#       - Kwu5U5vlTighRllSMZvTOQnGzZ40MKU9CROoObBWhPJZrd9+bWXOfdRJAbOKKVRvE2zlHqdwEK466ae2gyd9qrte1EY05Dzyq8fvtuOpvgpzQs6+0cQqmL8ybBxf97HtLejkTM9zpjfUB83kDQ8cRJjmKCYbz4JPH4qK4SN2ZCCJ+Y5wpeGJYskxvfF0mh4CMNluNzTbToviYUjv52M1IDdaVF5oqvsgkvDeB+kWaHS0RE1je3z4x204ULicEWZRhQxFkzDnrX8c0Kls+1smQREW7TNXkiSTn13+X2AMVw4bQ252zqaI8a8Mxyfd0w1hCTjVyFbsUOgf6wcistBebSHFS3yxUQICCjRZgbB4LNoGLDZ1sd11hRasR7Jte46124KBN2Eh122DBQy4yTgPLeZorEr7cxYAPu7gTwlUFShwSSu6Uu9wIEoahZz3oTf9Wju+PQCQtJB1syGBcroI81ZdMeBMabVlnpebNVABQBi30q2UztXAN0luGQE9e8tW/OLbofdJrXk1EPaypFmXNUL3BDsQHvGiuFCY0vhulcS3/JZzwBmtfyJvl4YSjDYoQzyD+7vIz4CMPNJnCX+KGkMgM+qAUlxjEWDsXJyU+OjZnCioD5IdZFZ6klgJk3kPvRxTDISx9mQpGADXeH5QV5Pg0gGphO+Z8T0N/50cqOo=
+#   file:
+#     - NgUI-x86_64.AppImage
+#     - NgUI-x86_64.AppImage.zsync
 deploy:
-  on:
-    repo:
-      - TKNgu/ng-ui
-    branches:
-      - releases
-  # skip_cleanup:
-  #   - true
-  provider:
-    - releases
+  provider: releases
   api_key:
-    secure:
-      - kmDqX9k/gGwxJ81cAnykQ/zykB11ju82pol0sLv4WSOUp4Aipswm4cXOjBsnQkr8l9t+dtMzMrR+wp9egH0D9HMe06bGuMKVzRET+DKpKFM36dESHmuHjxHdWUIV8nHS+JYz/hWSDyTEP88uWvsobgvYw34ZD0KCslK2riu8tAbJqxOhJ4fZtn9EyTxDGllh9Lv+ZawbLH0x4SbA/zMs5IaqhXWK1QAegPRypNjDTWNTuEPGYtefR39hIVTRsE5Q4vPjDpDV9PU0lpFRy5riI62MNb26K9Ob7ZYx4SnTT7vjmbvt9dItSJl3sNu487ZoVd0o2/OM0nIFERS44F+pBRHZ9hF8G2tr1TrNTI91jUEqn8ybIj0dm07gy/mhq+ZTgwR4COeqYtbq2IKwArBNDHzqNx1EUBuESlg8p4J+GzZdSlsOf7hf/2xTt3+zpQR6VT/itWU0ZvaXd2G8FXbCgy58rJ62TalUeoPaTYRQMIaGsI6qQ/tSgIrg4JEtF+kNg6wqYeMbX8LpccOPlSi5+ncK9gPHd+Tx3ncsqyR94c/82+KlQIP04/z4+rwe6GQtWqzi15vLCPPO2coqEtJfOMa0NL34SuHT+1O2IoVN1YQ9kkxvzx0prLlK2C/ROid4BC2LSSItRUiiNXtXCDwFWM1RPbgBjvkembtxOPOZvoM=
-  file:
-    - NgUI-x86_64.AppImage
-    - NgUI-x86_64.AppImage.zsync
+    secure: kmDqX9k/gGwxJ81cAnykQ/zykB11ju82pol0sLv4WSOUp4Aipswm4cXOjBsnQkr8l9t+dtMzMrR+wp9egH0D9HMe06bGuMKVzRET+DKpKFM36dESHmuHjxHdWUIV8nHS+JYz/hWSDyTEP88uWvsobgvYw34ZD0KCslK2riu8tAbJqxOhJ4fZtn9EyTxDGllh9Lv+ZawbLH0x4SbA/zMs5IaqhXWK1QAegPRypNjDTWNTuEPGYtefR39hIVTRsE5Q4vPjDpDV9PU0lpFRy5riI62MNb26K9Ob7ZYx4SnTT7vjmbvt9dItSJl3sNu487ZoVd0o2/OM0nIFERS44F+pBRHZ9hF8G2tr1TrNTI91jUEqn8ybIj0dm07gy/mhq+ZTgwR4COeqYtbq2IKwArBNDHzqNx1EUBuESlg8p4J+GzZdSlsOf7hf/2xTt3+zpQR6VT/itWU0ZvaXd2G8FXbCgy58rJ62TalUeoPaTYRQMIaGsI6qQ/tSgIrg4JEtF+kNg6wqYeMbX8LpccOPlSi5+ncK9gPHd+Tx3ncsqyR94c/82+KlQIP04/z4+rwe6GQtWqzi15vLCPPO2coqEtJfOMa0NL34SuHT+1O2IoVN1YQ9kkxvzx0prLlK2C/ROid4BC2LSSItRUiiNXtXCDwFWM1RPbgBjvkembtxOPOZvoM=
+  file: NgUI-x86_64.AppImage NgUI-x86_64.AppImage.zsync
+  on:
+    repo: TKNgu/ng-ui
+    branch: release
