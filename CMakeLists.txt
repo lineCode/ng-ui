@@ -5,13 +5,14 @@ cmake_minimum_required(VERSION 3.0)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(LINK_FLAG dl pthread X11 Xrandr Xinerama Xxf86vm Xcursor)
+set(LINK_FLAG dl pthread X11 Xrandr Xinerama Xxf86vm Xcursor glfw)
 set(PROJECT ng-ui)
 set(PROJECT_DEBUG debug)
 
 # Include header
 include_directories(include)
-include_directories(lib)
+include_directories(local/include)
+link_directories(${CMAKE_SOURCE_DIR}/local/lib)
 
 #For the static library:
 file(GLOB SOURCES "src/*.cpp" "src/*.c")
@@ -19,12 +20,12 @@ file(GLOB SOURCES "src/*.cpp" "src/*.c")
 # Project
 project(${PROJECT})
 add_executable(${PROJECT} ${SOURCES})
-target_link_libraries(${PROJECT} ${CMAKE_SOURCE_DIR}/lib/libglfw3.a ${LINK_FLAG})
+target_link_libraries(${PROJECT} ${LINK_FLAG})
 
 # Debug
 project(${PROJECT_DEBUG})
 add_executable(${PROJECT_DEBUG} ${SOURCES})
-target_link_libraries(${PROJECT_DEBUG} ${CMAKE_SOURCE_DIR}/lib/libglfw3.a ${LINK_FLAG})
+target_link_libraries(${PROJECT_DEBUG} ${LINK_FLAG})
 
 # Run Debug
 target_compile_definitions(${PROJECT_DEBUG} PUBLIC DEBUG_MEMORY)
@@ -49,9 +50,9 @@ add_custom_command(TARGET AppImage
                          copy_directory ${CMAKE_SOURCE_DIR}/data AppImage/data)
 add_custom_command(TARGET AppImage
                      COMMAND ${CMAKE_COMMAND} -E
-                         copy_directory ${CMAKE_SOURCE_DIR}/lib AppImage/lib)
+                         copy_directory ${CMAKE_SOURCE_DIR}/local/lib AppImage/lib)
 add_custom_command(TARGET AppImage
-                     COMMAND ${CMAKE_SOURCE_DIR}/tool/appimagetool-x86_64.AppImage AppImage/ -u ${UPDATE})
+                     COMMAND ${CMAKE_SOURCE_DIR}/local/bin/appimagetool-x86_64.AppImage AppImage/ -u ${UPDATE})
 
 # Run AppImage
 add_custom_target(NgUI)
