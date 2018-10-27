@@ -27,5 +27,6 @@ deploy:
   file:
     - NgUI-x86_64.AppImage
     - NgUI-x86_64.AppImage.zsync
+  skip_cleanup: true
   on:
     repo: TKNgu/ng-ui
