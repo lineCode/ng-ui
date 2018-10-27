@@ -1,10 +1,6 @@
 language: cpp
 compiler: gcc
 dist: trusty
-# branches:
-#   only: 
-#     - release
-
 addons:
   apt:
     sources:
@@ -16,24 +12,20 @@ addons:
     - libxcursor-dev
     - libxxf86vm-dev
     - libxinerama-dev
-
 install:
-  - "[ $CXX = g++ ] && export CXX=g++-5 || true"
-  - "[ $CC = gcc ] && export CC=gcc-5 || true"
-
+- "[ $CXX = g++ ] && export CXX=g++-5 || true"
+- "[ $CC = gcc ] && export CC=gcc-5 || true"
 script:
-  - mkdir build
-  - cd build
-  - cmake ../
-  - make TravisCI
-
+- mkdir build
+- cd build
+- cmake ../
+- make TravisCI
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github_token: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
+  provider: releases
+  api_key:
+    secure: Kwu5U5vlTighRllSMZvTOQnGzZ40MKU9CROoObBWhPJZrd9+bWXOfdRJAbOKKVRvE2zlHqdwEK466ae2gyd9qrte1EY05Dzyq8fvtuOpvgpzQs6+0cQqmL8ybBxf97HtLejkTM9zpjfUB83kDQ8cRJjmKCYbz4JPH4qK4SN2ZCCJ+Y5wpeGJYskxvfF0mh4CMNluNzTbToviYUjv52M1IDdaVF5oqvsgkvDeB+kWaHS0RE1je3z4x204ULicEWZRhQxFkzDnrX8c0Kls+1smQREW7TNXkiSTn13+X2AMVw4bQ252zqaI8a8Mxyfd0w1hCTjVyFbsUOgf6wcistBebSHFS3yxUQICCjRZgbB4LNoGLDZ1sd11hRasR7Jte46124KBN2Eh122DBQy4yTgPLeZorEr7cxYAPu7gTwlUFShwSSu6Uu9wIEoahZz3oTf9Wju+PQCQtJB1syGBcroI81ZdMeBMabVlnpebNVABQBi30q2UztXAN0luGQE9e8tW/OLbofdJrXk1EPaypFmXNUL3BDsQHvGiuFCY0vhulcS3/JZzwBmtfyJvl4YSjDYoQzyD+7vIz4CMPNJnCX+KGkMgM+qAUlxjEWDsXJyU+OjZnCioD5IdZFZ6klgJk3kPvRxTDISx9mQpGADXeH5QV5Pg0gGphO+Z8T0N/50cqOo=
   file:
     - NgUI-x86_64.AppImage
     - NgUI-x86_64.AppImage.zsync
-  keep-history: true
   on:
-    branch: master
+    repo: TKNgu/ng-ui
