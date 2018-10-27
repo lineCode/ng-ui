@@ -28,13 +28,12 @@ script:
   - make TravisCI
 
 deploy:
-  provider: releases
-  api_key:
-    secure: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
+  provider: pages
+  skip-cleanup: true
+  github-token: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
     file:
       - NgUI-x86_64.AppImage
       - NgUI-x86_64.AppImage.zsync
-  skip_cleanup: true
-  # on:
-  #   repo: <your repository path>
-  #   tags: true
+  keep-history: true
+  on:
+    branch: master
