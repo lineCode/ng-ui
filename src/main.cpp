@@ -131,12 +131,12 @@ int main(int argc, char **argv) {
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(7 * sizeof(float)));
         glEnableVertexAttribArray(2);
 
-        std::cout << ROOT_PATH + "/data/box.vs" << std::endl;
-        auto shader = std::make_unique<Shader>(ROOT_PATH + "/data/box.vs", ROOT_PATH + "/data/box.fs");
-        ng::Texture textureCut(ROOT_PATH + "/data/wall.jpg", ng::ImageLoader::ImageType::rgb);
-        ng::Texture textureFace(ROOT_PATH + "/data/awesomeface.png", ng::ImageLoader::ImageType::rgba);
+        std::cout << ROOT_PATH + "/data/shader/box.vs" << std::endl;
+        auto shader = std::make_unique<Shader>(ROOT_PATH + "/data/shader/box.vs", ROOT_PATH + "/data/shader/box.fs");
+        ng::Texture textureCut(ROOT_PATH + "/data/image/wall.jpg", ng::ImageLoader::ImageType::rgb);
+        ng::Texture textureFace(ROOT_PATH + "/data/image/awesomeface.png", ng::ImageLoader::ImageType::rgba);
 
-        auto shaderLight = std::make_unique<Shader>(ROOT_PATH + "/data/light.vs", ROOT_PATH + "/data/light.fs");
+        auto shaderLight = std::make_unique<Shader>(ROOT_PATH + "/data/shader/light.vs", ROOT_PATH + "/data/shader/light.fs");
         // ng::Texture textureCut("../data/wall.jpg", ng::ImageLoader::ImageType::rgb);
         // ng::Texture textureFace("../data/awesomeface.png", ng::ImageLoader::ImageType::rgba);
 

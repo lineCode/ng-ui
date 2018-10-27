@@ -35,27 +35,30 @@ add_custom_target(run
     WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
 )
 
-# Build AppImage.
+# Build NgUI.AppImage.
 set(UPDATE \"gh-releases-zsync|TKNgu|ng-ui|latest|NgUI.AppImage.zsync\")
-add_custom_target(AppImage)
-add_dependencies(AppImage ${PROJECT})
-add_custom_command(TARGET AppImage
+add_custom_target(NgUI.AppImage)
+add_dependencies(NgUI.AppImage ${PROJECT})
+add_custom_command(TARGET NgUI.AppImage
                      COMMAND ${CMAKE_COMMAND} -E
-                         copy_directory ${CMAKE_SOURCE_DIR}/NgUI AppImage)
-add_custom_command(TARGET AppImage
+                         make_directory NgUI)
+add_custom_command(TARGET NgUI.AppImage
                      COMMAND ${CMAKE_COMMAND} -E
-                         copy ${PROJECT} AppImage/bin/${PROJECT})
-add_custom_command(TARGET AppImage
+                         copy_directory ${CMAKE_SOURCE_DIR}/NgUI NgUI)
+add_custom_command(TARGET NgUI.AppImage
                      COMMAND ${CMAKE_COMMAND} -E
-                         copy_directory ${CMAKE_SOURCE_DIR}/data AppImage/data)
-add_custom_command(TARGET AppImage
+                         copy ${PROJECT} NgUI/bin/${PROJECT})
+add_custom_command(TARGET NgUI.AppImage
                      COMMAND ${CMAKE_COMMAND} -E
-                         copy_directory ${CMAKE_SOURCE_DIR}/local/lib AppImage/lib)
-add_custom_command(TARGET AppImage
-                     COMMAND ${CMAKE_SOURCE_DIR}/local/bin/appimagetool-x86_64.AppImage AppImage/ -u ${UPDATE})
+                         copy_directory ${CMAKE_SOURCE_DIR}/data NgUI/data)
+add_custom_command(TARGET NgUI.AppImage
+                     COMMAND ${CMAKE_COMMAND} -E
+                         copy_directory ${CMAKE_SOURCE_DIR}/local/lib NgUI/lib)
+add_custom_command(TARGET NgUI.AppImage
+                     COMMAND ${CMAKE_SOURCE_DIR}/local/bin/appimagetool-x86_64.AppImage NgUI -u ${UPDATE})
 
-# Run AppImage
+# Run NgUI.AppImage
 add_custom_target(NgUI)
-add_dependencies(NgUI AppImage)
+add_dependencies(NgUI NgUI.AppImage)
 add_custom_command(TARGET NgUI
                      COMMAND ./NgUI-x86_64.AppImage)
