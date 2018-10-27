@@ -81,6 +81,7 @@ addons:
 
 install:
   - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+  - "[ $CC = gcc ] && export CC=gcc-6 || true"
   - sudo apt-get install -qq gcc-6 g++-6 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
   - ld --version
 script:
