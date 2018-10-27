@@ -30,7 +30,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
+  api_key: b7e50ba0d325c91e0801dbc7607cd2d0485b55f4
     file:
       - NgUI-x86_64.AppImage
       - NgUI-x86_64.AppImage.zsync
