@@ -82,7 +82,7 @@ addons:
     - g++-6
     - clang-3.8
 install:
-  - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+  - "[ $CXX = g++ ] && export CXX=g++-5 || true"
   - "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
 
 before_install:
