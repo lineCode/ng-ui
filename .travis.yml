@@ -72,6 +72,7 @@ sudo: false
 language: cpp
 compiler:
   - gcc
+  - clang
 addons:
   apt:
     sources:
@@ -79,12 +80,6 @@ addons:
     packages:
     - g++-6
 install:
-  - "[ $CXX = g++ ] && export CXX=g++-5 || true"
-
-before_install:
-  - eval "${MATRIX_EVAL}"
-
-install: 
-  # C++14
-  - $(CXX) --version
-  - $(CXX) main.cpp -o main -std=c++14
+  - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+script:
+  - make
