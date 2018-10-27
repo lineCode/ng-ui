@@ -17,6 +17,19 @@ addons:
       - libxinerama-dev
 install: "[ $CXX = g++ ] && export CXX=g++-5 || true"
 
+# Brack config.
+branches:
+  only:
+  - master
+  - beta
+  - release
+
+# Git config.
+git:
+  depth: false
+  quiet: true
+  submodules: false
+
 # Script
 script:
   - mkdir build
