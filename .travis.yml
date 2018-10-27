@@ -29,3 +29,6 @@ script:
 
 after_success:
   - ls
+  - git add build/NgUI-x86_64.AppImage*
+  - git commit -m "TravisCI auto build"
+  - git push origin release
