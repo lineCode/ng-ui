@@ -72,16 +72,15 @@ sudo: false
 language: cpp
 compiler:
   - gcc
-  - clang
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - g++-6
+    - g++-5
 
 install:
-  - "[ $CXX = g++ ] && export CXX=g++-6 || true"
+  - "[ $CXX = g++ ] && export CXX=g++-5 || true"
   - sudo apt-get install -qq gcc-5 g++-5 mesa-common-dev libxrandr-dev libxcursor-dev libxxf86vm-dev libxinerama-dev
   - ld --version
 script:
