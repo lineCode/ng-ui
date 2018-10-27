@@ -63,5 +63,5 @@ add_dependencies(NgUI NgUI.AppImage)
 add_custom_command(TARGET NgUI
                      COMMAND ./NgUI-x86_64.AppImage)
 
-add_custom_target(all)
-add_dependencies(all NgUI.AppImage)
+add_custom_target(release)
+add_dependencies(release NgUI.AppImage)
