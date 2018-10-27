@@ -27,16 +27,15 @@ script:
   - cmake ../
   - make TravisCI
 
-after_success:
-    before_deploy:
-      # Set up git user name and tag this commit
-      - git config --local user.name "YOUR GIT USER NAME"
-      - git config --local user.email "YOUR GIT USER EMAIL"
-      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-    deploy:
-      provider: releases
-      api_key: "git: https://github.com/ on DESKTOP-I47QO5K at 19-Thg12-2017 13:51"
-      file:
-        - NgUI-x86_64.AppImage
-        - NgUI-x86_64.AppImage.zsync
-      skip_cleanup: true
+before_deploy:
+# Set up git user name and tag this commit
+- git config --local user.name "YOUR GIT USER NAME"
+- git config --local user.email "YOUR GIT USER EMAIL"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+  provider: releases
+  api_key: "git: https://github.com/ on DESKTOP-I47QO5K at 19-Thg12-2017 13:51"
+  file:
+    - NgUI-x86_64.AppImage
+    - NgUI-x86_64.AppImage.zsync
+  skip_cleanup: true
