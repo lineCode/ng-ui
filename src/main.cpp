@@ -61,10 +61,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 }
 
 int main(int argc, char **argv) {
-    for(int index = 0; index < argc; index++) {
-        std::cout << argv[index] << std::endl;
-    }
-    const std::string ROOT_PATH(argv[1]);
+    const std::string ROOT_PATH(argc < 1 ? "." : argv[1]);
     try {
         Window window(800, 600, "LearnOpenGL");
 

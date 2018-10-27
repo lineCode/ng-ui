@@ -29,4 +29,4 @@ deploy:
     - NgUI-x86_64.AppImage.zsync
   skip_cleanup: true
   on:
-    tags: true
+    repo: TKNgu/ng-ui
