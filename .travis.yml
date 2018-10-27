@@ -21,7 +21,7 @@ script:
 - cmake ../
 - make TravisCI
 before_deploy:
-- git tag 0.0.2
+- git tag 0.0.3
 deploy:
   provider: releases
   api_key:
@@ -31,4 +31,4 @@ deploy:
     - NgUI-x86_64.AppImage.zsync
   skip_cleanup: true
   on:
-    repo: TKNgu/ng-ui
+    branch: "releases"
