@@ -34,11 +34,15 @@ before_deploy:
   - git tag 0.0.3
 deploy:
   on:
-    branch:
-      - "releases"
+    repo:
+      - TKNgu/ng-ui
+    branches:
+      only:
+      - releases
   skip_cleanup:
     - true
-  provider: TKNgu
+  provider:
+    - TKNgu
   api_key:
     secure:
       - Kwu5U5vlTighRllSMZvTOQnGzZ40MKU9CROoObBWhPJZrd9+bWXOfdRJAbOKKVRvE2zlHqdwEK466ae2gyd9qrte1EY05Dzyq8fvtuOpvgpzQs6+0cQqmL8ybBxf97HtLejkTM9zpjfUB83kDQ8cRJjmKCYbz4JPH4qK4SN2ZCCJ+Y5wpeGJYskxvfF0mh4CMNluNzTbToviYUjv52M1IDdaVF5oqvsgkvDeB+kWaHS0RE1je3z4x204ULicEWZRhQxFkzDnrX8c0Kls+1smQREW7TNXkiSTn13+X2AMVw4bQ252zqaI8a8Mxyfd0w1hCTjVyFbsUOgf6wcistBebSHFS3yxUQICCjRZgbB4LNoGLDZ1sd11hRasR7Jte46124KBN2Eh122DBQy4yTgPLeZorEr7cxYAPu7gTwlUFShwSSu6Uu9wIEoahZz3oTf9Wju+PQCQtJB1syGBcroI81ZdMeBMabVlnpebNVABQBi30q2UztXAN0luGQE9e8tW/OLbofdJrXk1EPaypFmXNUL3BDsQHvGiuFCY0vhulcS3/JZzwBmtfyJvl4YSjDYoQzyD+7vIz4CMPNJnCX+KGkMgM+qAUlxjEWDsXJyU+OjZnCioD5IdZFZ6klgJk3kPvRxTDISx9mQpGADXeH5QV5Pg0gGphO+Z8T0N/50cqOo=
