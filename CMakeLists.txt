@@ -36,7 +36,7 @@ add_custom_target(run
 )
 
 # Build NgUI.AppImage.
-set(UPDATE \"gh-releases-zsync|TKNgu|ng-ui|latest|NgUI.AppImage.zsync\")
+set(UPDATE \"gh-releases-zsync|TKNgu|ng-ui|latest|NgUI-x86_64.AppImage.zsync\")
 add_custom_target(NgUI.AppImage)
 add_dependencies(NgUI.AppImage ${PROJECT})
 add_custom_command(TARGET NgUI.AppImage
